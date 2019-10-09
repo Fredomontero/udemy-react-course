@@ -1,0 +1,2 @@
+Babel takes our source folder where we have a lot of JavaScript files, babel its gonna take all those files and will make sure that runs in all the browsers.
+In the other hand webpack is a module bundler, it will bundle all our JavaScript files together

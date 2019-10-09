@@ -1,0 +1,22 @@
+We're going to use a tool called create react app that was created by Facebook to help developers to get started writing React code, the reason for this tool is because React is written in a version of JS that some browser dont understand.
+So there are 2 tools babel and Webpack that take our React code and convert it in an older version of JS that browsers understand.
+This is the quick way to start writing a React project because it has a lot of configuration made for us.
+
+We can see that create-react-app generates the project for us, it has the dependencies inside node_modules, there is the package.json file.
+We don't have to worry about babel and webpack, as we can see it also define some scripts for us, like:
+
+"start": "react-scripts start",
+"build": "react-scripts build",
+"test": "react-scripts test",
+"eject": "react-scripts eject"
+
+if we execute npm start, it will start the default application.
+
+We can see that we have 2 main folders SRC, where our application lives, all the React code that we write it will be inside the src folder.
+In the other hand in the public folder we can find the output of babel and webpack which is the same code, but in older versions of JS so the browser can understand our code.
+
+if we execute the command: 
+
+    npm run build
+
+If we give our React code to the browser, the browser wont know what to do,  if we execute npm run build, in th epublic folder it will create an optimize our code for production
