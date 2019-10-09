@@ -1,0 +1,11 @@
+The final key concept of React:
+
+    HEY I'M JUST THE UI, THE REST IS UP TO YOU
+
+For example, Angular is a  framewrok, gives to the developers all the tools needed to build a web application, on the other hand React only cares about the idea of components and the virtual DOM, if you need anything else there are some other modules that you can use, so React is just a library. And the key idea is that since it was so small you can learn once and write anywhere, React doesn't make assumptions of what technology stack you use.
+
+We have React native for mobile applications.
+We have React 360 for VR applications.
+We have electron for Desktop applications. 
+
+We always use the React core library and the React DOM library.

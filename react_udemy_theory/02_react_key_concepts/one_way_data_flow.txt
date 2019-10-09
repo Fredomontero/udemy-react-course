@@ -1,0 +1,7 @@
+The third key concept of React is:
+
+    UNIDIRECTIONAL DATA FLOW
+
+So far we understand that React allows us to write more JavaScript to make page more dynamic, and create components to build SPA like with Lego blocks and that it has a state that we have to update so React can update the template.
+
+Reacts uses a Virtual DOM which is a JavaScript representation of the DOM. Then React compares the Virtual DOM vs the actual DOM, so lets say that the user clicks a logging button, the state will change and React reacts to that change and say: 'hey, combine the new state and the components we have and update the DOM'. 

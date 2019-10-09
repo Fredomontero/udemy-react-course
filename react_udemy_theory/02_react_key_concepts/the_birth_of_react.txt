@@ -1,0 +1,15 @@
+Between 90's and 2000's we used to have just JS, HTML and CSS and for many years websites worked requesting for more HTML as we navigate through the webpage but there were a lot of problems between different browsers. After that jquery came up with an unified easy API to work with the DOM that works well across different browsers.
+But eventually developers started to develop very complex applications.
+
+Then we had the birth of the Single Page Application (SPA) which is a different system, we focus less in HTML and more in JavaScript, now our web applications works more like a desktop application, displaying new things with each interaction.
+
+In 2010 AngularJS became the standar for building SPA's it was created by Google, thena s things became more and more complex, a lot of different components were changing the state of the application, and finding bugs in the code becames harder because a lot of components affect other components.
+
+Then we can fin 3 very importante points here, we need to:
+
+1.- Good Architecture 
+2.- How to structure our code
+3.- How to manipulate data
+4.- How data flows through the application
+
+Then Facebook relase React in 2013, which was the solution. It's a whole new way to write web applications

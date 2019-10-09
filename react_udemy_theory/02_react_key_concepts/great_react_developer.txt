@@ -1,0 +1,9 @@
+How to be a great React developer?
+
+1.- Decide on components:
+    - How do we build this reusable components?
+    - How much do we break down a component?
+2.- Decide the satte and where it lives
+    - This state can live in different locatiosn in our DOM, where should it be? we have to place the state in the appropiate compoennt.
+3.- What changes when state changes?
+    - We have to decide what part of the virtual DOM we want to change, because it can take a huge impact on performance.

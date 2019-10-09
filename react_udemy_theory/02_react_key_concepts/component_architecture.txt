@@ -1,0 +1,12 @@
+The next big game changer is: 
+     
+    BUILD WEBSITES LIKE LEGO BLOCKS.
+
+React is designed around the conceptt of reusable components. Small components that you put together to create bigger components. Components containing components.
+So people can share components between different sections on a web page our through different projects. 
+
+Components are created with functions that recieves some input called props and returns something that looks like HTML but it's JavaScript.
+
+** Install React Developer tools
+
+This is a very important key on React because it lets us to share and reuse component.

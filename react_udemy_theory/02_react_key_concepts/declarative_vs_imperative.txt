@@ -1,0 +1,10 @@
+The success of React comes down to 4 key things.
+The first one is:
+
+    "DONT TOUCH THE DOM, I'LL DO IT"
+
+The DOM is the three representation of the page.
+
+Imperative programming: in an impertive paradigm we directly change indicual parts of our app in response to a various user events. The problem with this imperative approach it becames difficult to see the relationship between events and all the components.
+
+Declarative approach: React says:  "Hey DOM manipulation is one of the biggest bottle necks it takes  a long time form DOM change to happen, it takes 2 really intensive operations (repaint and reflow) this is a very expensive operation, so React find the best way to change the DOM and just declare to me how your app looks like". React make changes based on the state of the application. It means that we dont need to specify what exactly to change, just update the state of our app and React will take care about the template updates.
