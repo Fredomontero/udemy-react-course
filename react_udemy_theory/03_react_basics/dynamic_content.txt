@@ -1,0 +1,35 @@
+In this example, we will create an array of monster in the constructor, like this:
+
+constructor(){
+    super()
+    this.state =  {
+      monsters:[
+        {
+          name: 'Frankenstein',
+          id: '01'
+        },
+        {
+          name: 'Dracula',
+          id: '02'
+        },
+        {
+          name: 'Zombie',
+          id: '03'
+        }
+      ]
+    }
+  }
+
+  Then in our Component we will render each of them by using the map() method, that iterates through an array and gives some output, in this case it will render the elements:
+
+  render(){
+    return (
+      <div className="App">
+        {this.state.monsters.map( monster => (<h1 key={ monster.id }>{ monster.name }</h1>))}
+      </div>
+    )
+  }
+
+  Its important to take into consideration the key "JSX property" because React needs it to be wise, it needs to identify each indivisual element, so it can update just the ones that needs to be updated. If we do not include this unique key, we will recieve this error in the browser console:
+
+  Warning: Each child in a list should have a unique "key" prop.

@@ -1,0 +1,6 @@
+Now that we have our searchField up and running, we should move it into a separate component so we can reuse it whenever we want and wherever we want.
+
+**Functional components dont have access to state because they dont have access to the constructor, they dont have acces to lifecycle methods. Unlike a class component, a functional component is a component that recieves some props and return some HTML.
+We should avoid class components as much as possible, so if we think that we wont need to have access to the internal state, functional components is the way to go.
+
+They are easy to read and test

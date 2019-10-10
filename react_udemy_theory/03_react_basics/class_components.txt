@@ -1,0 +1,20 @@
+The reason of using  class component is that by using class components we have access to the state, which is a JavaScript object with many properties.
+in order to do that we need to use it as follows:
+
+class App extends Componet{
+    constructor(){
+        super()
+        
+        this.state = {
+            string: 'Hello Montero'
+        }
+    }
+}
+
+super in the constructor calls the constructor method on the component clas and gives us access to the state, and then we can set it to something.
+
+On Linux I had  a problem with the watchers, since I'm using the npm start command that has been configured by create-react-app, the problem was related with the default number of watchers available for the system, I found the solution here:
+
+https://stackoverflow.com/questions/16748737/grunt-watch-error-waiting-fatal-error-watch-enospc
+
+running this command:  echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p

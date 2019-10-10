@@ -1,0 +1,15 @@
+We are going to create a function for filtering just the monster that matches with the input, for that we wont modify the actual array of monster because it migth being used in another section of our app, we will create new arrays based on the originals using destructuring:
+
+render(){
+    const { monsters, searchField } = this.state //Destructuring
+    return (
+      <div className="App">
+        <input type='search' placeholder='search monsters' onChange={ e => {
+          this.setState({searchField: e.target.value});
+        }}/>
+        <CardList monsters={this.state.monsters}/>
+      </div>
+    )
+  }
+
+  Here we can see, that each time we type something React will rerender what need to be render, and we don't have to show and hide elements, because React do that for us.

@@ -1,0 +1,14 @@
+In real world application we are not going to harcode information we will always recieve this data from a server, database or something, so lets see how that actually works, we will be using a source that gives us 10 users without actually the need of building a server.
+
+So lets figure out how our component will get that information and render it into the DOM
+
+There are some methods called Life cycle methods, they get called at different stages of when our component gets rendered.
+so, lets use componentDidMount, when this component mounts (put the component on the page, render on the page for the first time) when want to use the native Javascript fetch method, and make an HTTP request to get the data, then log the data in our promise.
+
+componentDidMount(){
+    fetch('https://jsonplaceholder.typicode.com/users')
+    .then(response => response.json())
+    .then(users => this.setState({monsters: users}))
+}
+
+so basically we fetch the data from the URL, then we convert that data into a JSON format, which also return a promise, the we set equal our monster Array to the users array. and thats how we ended up with a list of user names in out application.

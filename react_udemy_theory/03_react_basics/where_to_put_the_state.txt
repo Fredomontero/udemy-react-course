@@ -1,0 +1,3 @@
+Why wouldn't we put a state to our SearchBox?
+It's because it's at the same level than CardList, and the CardList needs that information to know what needs to be rendered
+If an event happens on a child component that event trigegrs the React event System, create an event handler and go up an let the component that has the state, hey something has happen and you need to update the state. 

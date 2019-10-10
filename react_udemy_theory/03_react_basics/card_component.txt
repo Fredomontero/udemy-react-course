@@ -1,0 +1,35 @@
+So far the responsible of listing the list of mosnters is the App component, but we want to pass that responsibility to the CardList component, so lets do that:
+
+render(){
+    return (
+      <div className="App">
+        <CardList monsters={this.state.monsters}/>>
+      </div>
+    )
+  }
+
+  Now, in our App component we only attached our CardList component and we pass the monsters as a property, then in the CardList Component:
+
+  export const CardList = (props) => {
+    return(
+        <div className='card-list'>
+            { props.monsters.map( monster => (
+                <Card key={monster.id} monster={monster}/>
+            ))}
+        </div>
+    );
+}
+
+We attached our Card component inside the map method, so in each iteration it will create a new Card component, then we pass a single monster as a property:
+
+export const Card = (props) => {
+    return(
+        <div class='card-container'>
+            <img alt="monster" src={`https://robohash.org/${props.monster.id}?set=set2&size=180x180`}/>>
+            <h1>{ props.monster.name }</h1>
+            <p>{ props.monster.email }</p>
+        </div>
+    )
+}
+
+Finally in our Card component we display the properties of each monster

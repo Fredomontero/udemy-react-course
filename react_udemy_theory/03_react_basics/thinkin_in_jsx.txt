@@ -1,0 +1,1 @@
+Why use class component vs functional components?

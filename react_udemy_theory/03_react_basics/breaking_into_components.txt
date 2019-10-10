@@ -1,0 +1,11 @@
+Why do we need to break everything into components instead of having a huge JSX file where we hace all our code?
+
+Question: When and why do we break things down into components?
+
+- To let each component have only one responsibility
+- For readibility
+- Its easier to mantain and debug
+
+We make things more flexible, the bigger a component is, the more logic that it has, makes more difficult to reuse it in another place 
+thats why break thing into pretty small component files is very important, also the flexibility of component performance.
+Separate components into concerns.

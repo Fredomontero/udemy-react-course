@@ -1,0 +1,29 @@
+We will be creating the CardList Component as follows;
+
+import React from 'react';
+
+export const CardList = (props) => {
+    console.log(props);
+    return(
+        <div>
+            Hello
+        </div>
+    );
+}
+
+Here there's an important concept, the props, props are all the properties that we pass when we use our component, like this:
+
+render(){
+    return (
+      <div className="App">
+      <CardList name="Christian"> <---------------
+        <h1>Hello World!</h1>
+      </CardList> 
+        {this.state.monsters.map( monster => (<h1 key={monster.id}>{ monster.name }</h1>))}
+      </div>
+    )
+  }
+
+  In this case we are passing a property called name and it is set equal to "Christian", there also another very important property that its called children, and children is everything that we passed between our CardList tags, in this example is:
+
+  <h1>Hello World</h1>

@@ -1,0 +1,6 @@
+React has Synthetic events, for example for the native HTML onchange event:
+
+- The user types something on a searchField and the 'onchange' event is triggered
+- Then the virtualDOM intercepts that event and says, let me tell my React app that something has changed
+
+And that's a synthetic event, kind of fake event that pretends to be the native event. We use them to detect whenever a DOM event happens.

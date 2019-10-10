@@ -1,0 +1,32 @@
+We will take a deeper dive into writing methods on classes.
+We will explore a very fundamental thing: 'this'
+
+this is a special keyboard that references the context in which is being invoked.
+
+For example when we write this.state in the render method, we mean teh state of the App component
+But something interesting happens when we are writing our Class compoennt method based on how we write our methods, it can get bound differently.
+
+when we write our own methods withouy using arrow functions, this is not bounded to the Component itself, but when we use this inside, render or any life cycle method it does, why? The only reson is that when we invoked the super method, we extend the functionality that exist in Component, and it has those methods.
+
+For example if we write our handleChange method event like this:
+
+handleChange(e){
+    this.setState({searchField: e.target.value})
+}
+
+We will have an error on teh this keyword, its says that this is undefined, why?
+The reason for this is because JS by default doesn't set its scope of this in functions, we have to explicitly state what context we want this to be.
+
+We could do that in the constructor like this:
+
+constructor(){
+    super()
+    ...
+    this.handleChange = this.handleChange().bind(this);
+}
+
+bind is a method in any function that returns a new function where the context of this is set to whatever we pass to it.
+But this is a very verbose way of solving that, because for any method we should do this, we can instead use arrow functions.
+
+Arrow functions has a very unique characteristic, they set the context of this in whatever it was declared it in the first place.
+Arow functions are like: "Oh! I'm going to automatically bind this to the context where I was defined"

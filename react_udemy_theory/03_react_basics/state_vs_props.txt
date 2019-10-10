@@ -1,0 +1,3 @@
+So far we have notices that there is an App component that pretty much surrounds everything in our App, all the other components and only there we have the state, then we passed that state as a property to our CardList component and this state will be changing because of user interaction.
+
+eventually we will see that we can put the state wherever we want, if

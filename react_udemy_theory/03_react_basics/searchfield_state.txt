@@ -1,0 +1,26 @@
+we are going to build a searchbox which is a input where the user can type something and then we need to get whatever the user types in and save it into the state, how do we save that into the state?
+
+We will be using the onChange event on the input field, which it's triggered everytime the input changes, this means everytime the user types a character or deletes one:
+
+onChange={ e => console.log(e.target.value)}
+
+e represents the event, and when we type e.target.value it means teh actual value that the user types in the searchBar, then if we want to store that in the state, we can do this:
+
+render(){
+    return (
+      <div className="App">
+        <input type='search' placeholder='search monsters' onChange={ e => {
+          this.setState({searchField: e.target.value});
+          console.log(this.state.searchField);
+        }}/>
+        <CardList monsters={this.state.monsters}/>
+      </div>
+    )
+}
+
+We log the this.state.searchField variable to see what do we have there, but we can see that there's always a character missing, and this is because this.setState in asynchronous.
+
+But we can use the second parameter in the setState method, which is a callback to do soemthing once the state has been updated, like this:
+
+
+  
