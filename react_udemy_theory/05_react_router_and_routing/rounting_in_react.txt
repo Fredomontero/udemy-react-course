@@ -1,0 +1,9 @@
+Routing in SPA's
+
+Each time we access to a webpage we request from the server an HTML file, some css and a JS file. Back in the days, when we click on a button or something, we used to made a request from the server and expect another HTML file, anothe CSS and another JS. 
+Now things are a little bit different all the navigation happens in the frontend, so our servers now are just focused on serving data instead of HTML files.
+
+And here we can see an advantage, if we have a mobile app version, the server can be the same, since we are serving data and no HTML templates/files.
+
+so we will be using React router, which we can say its the standard, initially when SPA started, one common problem was the bakc button of the browser, because SPA's didn't have the routing functionality where you couldnt go back, because there were any links.
+But the problem was solved with the history API, because interanlly React router and other libraries uses this API to mimic URL's

@@ -1,0 +1,92 @@
+Its really important to cover a fundamental concepts in React Router, here's a little demo with 3 pages:
+HomePage
+TopicsPage
+TopicIdPage (detail)
+
+const HomePage = () => (
+    return(
+        <div>
+            <h1>Home Page</h1>
+        </div>
+    )
+)
+
+const TopicsList = () => (
+    return(
+        <div>
+            <h1>Topics List</h1>
+        </div>
+    )
+)
+
+const TopicDetail = () => (
+    return(
+        <div>
+            <h1>Topics Detail Page</h1>
+        </div>
+    )
+)
+
+function App(){
+    return(
+        <div>
+            <Route exact path='/' component={ HomePage }/>
+            <Route exact path='/topics' component={ TopicsList }/>
+            <Route path='/topics/:topicId' component={ TopicDetail }/>
+        </div>
+    );
+}
+
+so far we know that we pass 3 arguments in the component Route, but how do they looks like? lets log them out:
+
+const HomePage = (props) => (
+    console.log(props)
+    return(
+        <div>
+            <h1>Home Page</h1>
+        </div>
+    )
+)
+
+And we will see that there is an object with 3 elements, history, location and match, first let's examine the match, and it has 4 elements:
+1.- isExact: true = This will be true only if the entire url matches the path
+2.- params: {} = This is an object of the url parameters (:topicId which dynamicaly changes )
+3.- path: "/" = this is what we specified in our Route component
+4.- url: "/" = this is the browser url
+
+Let's say that in out TopicdDetail we want to show which topicId we are looking ar:
+
+const TopicDetail = (props) => (
+    return(
+        <div>
+            <h1>Topics Detail Page: {props.match.params.topicId}</h1>
+        </div>
+    )
+)
+
+The history is a complex property, there are 2 ways to navigate in React router Dom between our pages, the first is using the Link component, that lets us dynamically passing.
+
+The link component is a special component that lets us pass in the TO property and the string that we want to take us to, so we have to remember, React is a SPA which means we are not redirecting and rebuilding the entire each time the url changes, we are really just hijacking the url position to determine with javascript what part of the DOM to take off and what part to replace, what component to remount or mount.
+
+So, the other way to use this kind of navigation is by using the history prop so, if instead a Link, we want to use a button and on its click event we specified the place that we were to go, each time the button is clicked, like this:
+
+<button onClick={() => props.history.push('/topics')}>Topics</button>
+
+This is the equivalent to using the link, but it gives us more dynamic access, we can control when we want this to work, on the componentDidMount or any other lifecycle.
+
+the third prop that we have is the location, and it tells us where are we currently, in the pathname 
+
+**The main usage of match is that lets us to create a nested route structure, so lets say that our TopicList page renders out a bunch of links to a bunch of topics details Lets take a look to this:
+
+const TopicsList = () => {
+  return(
+      <div>
+          <h1>Topics List</h1>
+          <Link to={`${props.match.url/:13}`}>To Topic 13</Link>
+          <Link to={`${props.match.url/:17}`}>To Topic 17</Link>
+          <Link to={`${props.match.url/:21}`}>To Topic 21</Link>
+      </div>
+  )
+}
+
+props.match.url: The current url

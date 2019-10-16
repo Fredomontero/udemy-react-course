@@ -1,0 +1,64 @@
+Right now we only have 1 page (Home page), but what if we had more?
+We will use react-routher-dom there are many others but this one is the most popular and more supported, its easy to understand.
+
+How do we use it?
+ First we have to import it in index.js:
+
+    import { BrowserRouter } from 'react-router-dom' 
+
+And ReactRouter its a component that will wrap our entire application, and what it does is that gives to our application all the functionallity that this library provides.
+
+Then in order to show what Reat Router does, we will be writing a little bit of code first, so, in App.js, we will do this:
+
+import { Route } from 'react-router-dom'
+
+Then we will create a test Component as follows:
+
+const HatsPage = () => (
+    <div>
+        <h1>Hats Page</h1>
+    </div>
+);
+
+so, how does the route component works?
+
+its a component that takes 3 arguments:
+
+<Route exact path component/>
+
+Component: component will be the component that we want to render
+Path: The string of the url
+
+This works as follows, when the specified PATH matches with the Browser url, the specified COMPONENT will be rendered.
+
+exatc: is a true/false property, if we keep it without equal meand that the path must match exactly with the browser url.
+
+If we have this:
+
+<div>
+    <Route exact path='/' component={ HomePage } />
+    <Route path='/hats' component={ HatsPage } />
+</div>
+
+without the exact argument, as long as the path y present it will render the component, in this case it will render the homepage and underneath i will render the HatsComponent.
+
+<div>
+    <Route exact path='/' component={ HomePage } />
+    <Route path='/hats' component={ HatsPage } />
+</div>
+
+if we do this, it will only render the homePage is the browser url is exactly the same as the specified path.
+
+There's another component that its called <switch></switch>
+ if we do this:
+ 
+ <div>
+    <Switch>
+        <Route path='/' component={ HomePage } />
+        <Route path='/hats' component={ HatsPage } />
+    </Switch>
+</div>
+
+The way it works is that, at the moment that <Switch></Switch> finds a match it will render that component and anything else, so if we have localhost:3000/hats  it will only render the homepage unless we specified the exact argument.
+
+this gives us more controll over the code, it allows us to follow a pattern where we know that as long as 1 route matches thats the only thing we are gonna render, it helps if we dont want to accidentally render many components.
