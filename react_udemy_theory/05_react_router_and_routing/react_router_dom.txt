@@ -90,3 +90,6 @@ const TopicsList = () => {
 }
 
 props.match.url: The current url
+
+Now it doesn't matter where our topic List is because it will now always be aware and know how to take us to the urls.
+Even if our topicsList was at some obscure long url. At this point it doesnt care anything regardless where our url is from the point of where it match, all that it cares about is that we want to render to different topics, from our path, this is how we can build dynamic routing
