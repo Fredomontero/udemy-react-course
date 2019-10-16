@@ -1,0 +1,54 @@
+Now, we want to continue building our application
+
+We have our menu items and we want to use react route to 'navigate' to the page related to each item when we click on it.
+for example, if we click the Hats menuItem we want to go to the hats page
+
+One of the problem of using our props, path, history, etc is that we only have access to them on the first component that get passed into our route...
+this means that even if <Directory></Directory> and <MenuItem></MenuItem> are children of HomePage Component, only our HomePage Component will have access to those properties.
+
+<div>
+    <Switch>
+    <Route exact path='/' component={ HomePage } />
+    <Route exact path='/hats' component={ HatsPage } />
+    </Switch>
+</div>
+
+One solution would be to pass those props down into each component, like this:
+
+const HomePage = ({history}) => (
+    <div className='homepage'>
+        <div className='directory-menu'>
+            <Directory history={ history } />>
+        </div>
+    </div>
+)
+
+And then into the directory
+<div className='directory-menu'>
+    {
+        this.state.sections.map(({title, imageUrl, id, size}) => (
+            <MenuItem
+                key={id}
+                title={title}
+                imageUrl={imageUrl}
+                size={size}
+                history={ this.props.history }
+            />
+        ))
+    }
+</div>
+
+And by doing so, our Menu-item already has access to that value in our props.
+The problem of doing this, is that this is a bad practice called prop tunelling or prop drilling because we are tunelling this props multiple children deep in order to get them to the component that needs it, but the children between doesnt need them for any reason other than to pass it to the children, but there is a solution.
+
+we will be using import withrouter directly in the component where we need to have access to those properties
+
+{withRouter} from 'react-router-dom';
+
+and what is withrouter? is a High order Component (HOC), which is a function that takes a component as an argument and returns you a modified Component.
+
+Just Like functional components are function that takes props and returns/render a Component, a HOC is a function that takes a component and modifies it in some way (a power up componet) In this case we will be powering up our menuItem component to having access to those properties related to our router, so in order to do this, on the export statement we do this:
+
+export defaulr withRouter(MenuItem)
+
+and this will return a pwoerup MenuItem component with the same name but now we will have access to macth, history and location properties.
