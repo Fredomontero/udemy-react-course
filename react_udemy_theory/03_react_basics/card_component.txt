@@ -32,4 +32,4 @@ export const Card = (props) => {
     )
 }
 
-Finally in our Card component we display the properties of each monster
+Finally in our Card component we display the properties of each monster, Now we will be breaking our app into components which is the philosophy of React.

@@ -1,0 +1,18 @@
+ How's the sturtcure of a reducer?
+ 
+ //It takes 2 params the currentState and the action where is the data that we want to update and it's type
+ const userReducer = (currentState, action) => {
+     switch(action.type){                           <---- It's a switch case function 
+        case 'SET_CURRENT_USER':                    <---- It checks if the type of action is of it's concern
+            return{                                 <---- If it's it returns a new array with the previous state + new data *[1]
+                ...currentState,
+                currentUser: action.payload
+            };
+        default:
+            return currentState;                    <---- If it's of another type it returns the same state Object *[2]
+     }
+ }
+
+ *[1] It's very important to notice that is a new object, because if we return the same object with an updated property, React won't render the update, if it sees the same object, it would think that there are not changes. that's why we need to send a new one.
+
+ *[2] Since is the same object it wont make any render.

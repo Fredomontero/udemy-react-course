@@ -52,7 +52,7 @@ And we will see that there is an object with 3 elements, history, location and m
 1.- isExact: true = This will be true only if the entire url matches the path
 2.- params: {} = This is an object of the url parameters (:topicId which dynamicaly changes )
 3.- path: "/" = this is what we specified in our Route component
-4.- url: "/" = this is the browser url
+4.- url: "/" = Is the url of our component that got rendered from our route
 
 Let's say that in out TopicdDetail we want to show which topicId we are looking ar:
 
@@ -64,7 +64,7 @@ const TopicDetail = (props) => (
     )
 )
 
-The history is a complex property, there are 2 ways to navigate in React router Dom between our pages, the first is using the Link component, that lets us dynamically passing.
+The history is a complex property, there are 2 ways to navigate in React router Dom between our pages, the first is using the Link component.
 
 The link component is a special component that lets us pass in the TO property and the string that we want to take us to, so we have to remember, React is a SPA which means we are not redirecting and rebuilding the entire each time the url changes, we are really just hijacking the url position to determine with javascript what part of the DOM to take off and what part to replace, what component to remount or mount.
 

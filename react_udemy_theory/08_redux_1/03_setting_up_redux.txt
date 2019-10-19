@@ -1,0 +1,55 @@
+
+Action ---> MiddleWare ---> Root Reducer ---> Store ---> DOM Changes
+
+We have some actions that goes into reducer that it propagates changes into it but updating the store and then store finally results into updating the DOM.
+
+Along the way this actions occurring, before it ever hits the reducer,. it can hits something in the middle called it middleware which is a piece of code that get the action before the reduer.
+
+One example of this middleware that we will be using and exploring in order to better understand whats going on is the 'Redux-logger Middleware' that logs out the actions that are fired and then what the state of this reducers are before and after this action, so pretty much is a visual representation of what is the action doing.
+
+[ IMPLEMENTATION ] -----------------------
+
+So, how to use Redux?
+1.- We need to install Redux and Redux bindings for React and also the redux logger middleware
+
+    npm install redux redux-logger react-redux
+
+2.- Then we have to go to the index.js where we would implement our new Component, that will give our application access to the store and reducers.
+We will import the provider
+
+    import { Provider } from 'react-redux'
+
+This provider is a Component that will wrap our entire application because it will give access to all its functionality, it needs to be the patern of everything.
+
+3.- Then, now that we have the provider we need to write the store stuff, We will make a new folder insider our src folder with the name of Redux, where we are going to write all our redux code. And firest we will write the root reducer which is actually the reducer that holds all the data of thw whole application. It combines all the state together.
+
+4.- Then we will write our UserReducer which is the one that will hold the state of our current user. for write our reducer, we need to know the structure of our actions, which are objects like this:
+
+{
+    type: //The type of action
+    payload: //Here we can pass the new values or some values to make some tranformation to our state
+}
+
+so, this is our reducer
+
+const INITIAL_STATE = {
+    currentUser: null
+}
+
+//We will be using the ES6 Syntac to set a default value, so if ever the developer doesn't specify the state, it will fall back and takes the INITIAL_STATE
+const userReducer = (state = INITIAL_STATE, action) => {
+    swicth(action.type){
+        case: 'SET_CURRENT_USER':
+            return{
+                ...state,
+                currentUser: action.payload
+            }
+
+        default:
+            return state;
+    }
+}
+
+WE NEED TO KNOW THAT EVERY SINGLE REDUCER GETS ALL THE ACTIONS THAT ARE FIRED, EVEN IF THOSE ACTIONS ARE NOT RELATED TO THAT REDUCER AND THIS IS THE ACTUAL REASON OF WHY WE NEED A DEFAULT CASE, BECAUSE IF THE ACTION.TYPE DOESN'T MATCH WE WANT TO RETURN THE CURRENT_STATE
+
+export default userReducer;

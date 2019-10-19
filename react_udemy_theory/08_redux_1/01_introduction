@@ -1,0 +1,15 @@
+Why do we want to use redux?
+
+1.- It's good on managing state, specially when our app is big and complex.
+Using just this.state it doesn't make sense anymore, React is a UI layer and it's very good at it, but it's not with state managing.
+
+2.- Also Redux is very useful sharing data between components.
+
+3.- Predictable state managment using the 3 principles:
+    I.- Single source of truth: One single big object that describes the entire state of the App.
+    II.- State is read only: inmutability, not modifying the objetct, it prevents unexpected error, the state will never be modified, we will be creating new state objects after each Action of the user.
+    III.- Changes using pure functions: The idea that a pure function is something that recieves an input and returns an output that is predictable, if we enter the same input 100 times we will have the same output those 100 times.
+
+Redux keywords:
+
+an ACTION is something that the user does, like clicking on a button, selecting an option of a dropdown menu, and what it happens after is that as soon as the user clicks on something an creates an ACTION, it goes to a REDUCER and a REDUCER is simple a pure function that recieves an input (the ACTION) and returns an output, and this output is the state or the STORE as we call it in redux which is the entire state of the app, as it goes to the function, the STORE gets updated and React because it notices the state changes makes updates to the view layer. 

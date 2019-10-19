@@ -1,0 +1,34 @@
+So far we have created our first reducer, and after that we create our rootReducer where we will combine all our reducers.
+But we need to create our store, so in our React folder, we create a file called store.js ans we import this:
+
+    import{ createStore, applyMiddleware } from 'redux'
+
+so if we remember we need add middleware to our store, so when whatever actions gets fired or dispatched, we can catch them and display them
+
+import logger from 'redux-logger';
+import rootReducer from './root-reducer';
+
+const middlewares = [logger];
+const store = createStore(rootReducer, applyMiddleware(...middlewares))
+
+export default store;
+
+Finally we need to import our store into index.js and pass it as an argument in the Provide Component:
+
+import store from './redux/store'
+
+ReactDOM.render(
+    <Provider store={store}>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </Provider>,
+     document.getElementById('root')
+);
+
+Then we need to create our ActionCreator functions, we need to create them in a file called user.actions.js
+
+export const setCurrentUser = user => ({
+    type: 'SET_CURRENT_USER',                    <---This is the reducer types expectation
+    patload: user
+})

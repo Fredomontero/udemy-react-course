@@ -1,0 +1,14 @@
+Now we will need to use the connect method that recieves 2 functions, the second one is optional and it will returns us a HOC. The first argument is the function that allows us to access to the state, with the state being our reducer, our RootReducer to be specific.
+
+We want the value of currentUser, how do we get it?
+
+We are gonna write mapStateToProps function, thus naming can be anything but mapStateToProps is the standard with redux codebases and its gonna be equal to a function and we are gonna return an object were the name of the property would be the actual property that we are gonna pass in and the value, the value, what do we get in this function? the state object, the state is the rootReducer, and we are gonna pass it the currentUser and the value would be the state.user.currentUSer as follows:
+
+const mapStateToProps = state => ({
+    currentUser: state.user.currentUser
+})
+
+export default connect(mapStateToProps)(Header);
+
+We will be using the connect method and the mapStateToProps wherever we need to get properties from our reducers
+
